@@ -1,0 +1,132 @@
+<div class="oj-row">
+    <h1>JETSki</h1>
+    <div class="oj-lg-12 oj-col">
+        <div id="form-container" class="oj-form">
+            <div class="oj-form-control-group" role="group">
+                <input type="text"
+                       data-bind="textInput: url, ojComponent: { component: 'ojInputText' }"/>
+                <button data-bind="click: connect, 
+                       ojComponent: { component: 'ojButton' }">Connect</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="oj-row">
+    <div class="oj-sm-12 oj-lg-4 oj-col"><h2>Heap Size</h2>
+        <div data-bind="ojComponent: {
+                component: 'ojChart', 
+                type: 'line', 
+                series: heapSize, 
+                groups: time,
+                orientation: 'vertical',
+                timeAxisType: 'enabled',
+                zoomAndScroll: 'live'
+             }"
+             >
+        </div>
+    </div>
+    <div class="oj-sm-12 oj-lg-4 oj-col"><h2>Thread Count</h2>
+        <div  data-bind="ojComponent: {
+                component: 'ojChart', 
+                type: 'line', 
+                groups: time,
+                series: threadCount, 
+                orientation: 'vertical',
+                timeAxisType: 'enabled',
+                zoomAndScroll: 'live'
+             }">
+        </div>
+    </div>
+    <div class="oj-sm-12 oj-xl-4 oj-col"><h2>Peak Thread Count</h2>
+        <div id="lineAreaChart" data-bind="ojComponent: {
+                component: 'ojChart', 
+                type: 'line', 
+                series: peakThreadCount, 
+                groups: time,
+                orientation: 'vertical',
+                timeAxisType: 'enabled',
+                zoomAndScroll: 'live'
+             }"
+             >
+        </div>
+    </div>
+</div>
+<div class="oj-row">
+    <div class="oj-lg-12 oj-col">
+        <h2>Live Data</h2>
+        <table id="table" summary="Live Data" aria-label="Live Data Table"
+               data-bind="ojComponent: {component: 'ojTable', 
+                                data: data, 
+                                columnsDefault: {sortable: 'none'}, 
+                                columns: [{headerText: 'Id', 
+                                       field: 'id'},
+                                          {headerText: 'Time', 
+                                       field: 'monitoringTime'},
+                                          {headerText: 'Heap', 
+                                       field: 'usedHeapSize'},
+                                          {headerText: 'Threads', 
+                                       field: 'threadCount'},
+                                          {headerText: 'Peak Threads', 
+                                       field: 'peakThreadCount'},
+                                          {headerText: 'Errors', 
+                                       field: 'totalErrors'},
+                                          {headerText: 'Busy Threads', 
+                                       field: 'currentThreadBusy'},
+                                          {headerText: 'Rolled Back TX', 
+                                       field: 'rolledBackTX'},
+                                          {headerText: 'Queued Connections', 
+                                       field: 'queuedConnections'},
+                                          {headerText: 'Active Sessions', 
+                                       field: 'activeSessions'},
+                                          {headerText: 'Committed TX', 
+                                       field: 'committedTX'},
+                                          {headerText: 'Expired Sessions', 
+                                       field: 'expiredSessions'},
+                                          {headerText: 'Deadlocked Threads', 
+                                       field: 'deadlockedThreads'}
+                   ],
+                               rootAttributes: {'style':'width: 100%; height: 400px;'}}">
+
+        </table>
+    </div>
+</div>
+<!--<script type="text/html" id="id">
+<td data-bind="text: id"></td>
+</script>
+<script type="text/html" id="monitoringTime">
+<td data-bind="text: monitoringTime"></td>
+</script>
+<script type="text/html" id="usedHeapSize">
+<td data-bind="text: usedHeapSize"></td>
+</script>
+<script type="text/html" id="threadCount">
+<td data-bind="text: threadCount"></td>
+</script>
+<script type="text/html" id="peakThreadCount">
+    <td data-bind="text: peakThreadCount"></td>
+</script>
+<script type="text/html" id="totalErrors">
+    <td data-bind="text: totalErrors"></td>
+</script>
+<script type="text/html" id="currentThreadBusy">
+    <td data-bind="text: currentThreadBusy"></td>
+</script>
+<script type="text/html" id="rolledBackTX">
+    <td data-bind="text: rolledBackTX"> </td>
+</script>
+<script type="text/html" id="queuedConnections">
+    <td data-bind="text: queuedConnections"></td>
+</script>
+<script type="text/html" id="activeSessions">
+    <td data-bind="text: activeSessions"></td>
+</script>
+<script type="text/html" id="committedTX">
+    <td data-bind="text: committedTX"></td>
+</script>
+<script type="text/html" id="expiredSessions">
+    <td data-bind="text: expiredSessions"></td>
+</script>
+<script type="text/html" id="deadlockedThreads">
+    <td data-bind="text: deadlockedThreads"></td>
+</script>-->
+
